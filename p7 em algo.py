@@ -6,12 +6,6 @@ import pandas as pd
 import numpy as np
 
 iris = datasets.load_iris()
-print(iris)
-print("\n IRIS DATA :",iris.data)
-print("\n IRIS FEATURES :\n",iris.feature_names)
-print("\n IRIS TARGET :\n",iris.target)
-print("\n IRIS TARGET NAMES :\n",iris.target_names)
-
 x = pd.DataFrame(iris.data)
 print(x)
 x.columns = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width']
