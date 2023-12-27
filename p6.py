@@ -29,7 +29,7 @@ def calculateClassProb(summaries,x_vec):
             mean, stdev = classSummaries[i]
             x = x_vec[i]
             probabilities[classValue] *= calculateProb(x,mean,stdev)
-            return probabilities
+    return probabilities
 
 def predict(summaries,x_vec):
     prob = calculateClassProb(summaries,x_vec)
@@ -40,7 +40,7 @@ def predict(summaries,x_vec):
             bestLabel = classValue
     return bestLabel
 predictions = []
-testSet = test.values.tolist()
+testSet = list(test.values)
 for i in range(len(testSet)):
     result = predict(summaries,testSet[i])
     predictions.append(result)
@@ -53,5 +53,5 @@ def getAccuracy(test,predictions):
     return (correct/float(len(testSet)))*100.0
 
 accuracy = getAccuracy(test,predictions)
-print(f'Split{len(df)} rows into train={len(train)} and test={len(test)}')
+print(f'Split {len(df)} rows into train={len(train)} and test={len(test)}')
 print(f'Accuracy : {accuracy}')
